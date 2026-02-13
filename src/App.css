@@ -1,0 +1,495 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* background: linear-gradient(135deg, #ffc0cb 0%, #ffb3d9 100%); */
+  /* mette le background image */
+  background: url('../public/background.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.heart-image{
+  width: 70px;
+  height: 70px;
+}
+/* .envelope-image {
+  width: 90px;
+  height: 90px;
+} */
+
+.valentine-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  position: relative;
+}
+
+.valentine-card {
+  background: white;
+  border-radius: 30px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 100%;
+  max-width: 90vw;
+  position: relative;
+  height: 370px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.heart-emoji {
+  font-size: 50px;
+  display: block;
+  margin-bottom: 20px;
+  animation: heartBeat 1.2s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.3);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+.valentine-card h1 {
+  color: #2d3561;
+  font-size: 22px;
+  margin-bottom: 30px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  padding: 14px 40px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-weight: bold;
+  position: relative;
+  width: 120px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-yes {
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+  color: white;
+  z-index: 10;
+}
+
+.btn-yes:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+}
+
+.btn-yes:active {
+  transform: scale(0.95);
+}
+
+.btn-no {
+  background: #e0e0e0;
+  color: #666;
+  position: relative;
+}
+
+.btn-no:hover {
+  background: #d0d0d0;
+}
+
+/* Avatars en bas du container */
+.avatar-container {
+  position: absolute;
+  text-align: center;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-1 {
+  bottom: 50px;
+  left: 160px;
+  gap: 10px;
+}
+
+.avatar-2 {
+  bottom: -20px;
+  right: 225px;
+}
+
+.avatar-3 {
+  bottom: 50px;
+  left: 240px;
+
+}
+
+.avatar-4 {
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.avatar-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  margin: 0 0;
+  padding:  0;
+}
+
+.avatar-text {
+  font-size: 12px;
+  color: #999;
+
+  white-space: nowrap;
+}
+
+/* Texte fixe en bas des boutons */
+.text-display {
+  font-size: 12px;
+  color: #999;
+  margin-top: 15px;
+  min-height: 20px;
+  text-align: center;
+}
+
+/* Success card */
+.success-card {
+  background: white;
+  border-radius: 30px;
+  padding: 60px 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 100%;
+  max-width: 380px;
+  animation: slideIn 0.6s ease-out;
+  margin: 0 auto;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* .heart-animation {
+  font-size: 80px;
+  margin-bottom: 20px;
+  animation: floatHeart 2s ease-in-out infinite;
+}
+
+@keyframes floatHeart {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+} */
+
+ .heart-animation {
+  font-size: 80px;
+  /* margin-bottom: 20px; */
+  animation: vibrateEnvelope 0.4s linear infinite;
+  display: inline-block;
+}
+
+@keyframes vibrateEnvelope {
+  0%   { transform: translateX(0) rotate(0deg); }
+  20%  { transform: translateX(-0px) rotate(-8deg); }
+  40%  { transform: translateX(0px) rotate(8deg); }
+  60%  { transform: translateX(-0px) rotate(-4deg); }
+  80%  { transform: translateX(0px) rotate(4deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+
+.success-card h1 {
+  font-size: 28px;
+  color: #ff6b9d;
+  margin-bottom: 15px;
+}
+
+.success-card p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.celebration {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 40px;
+}
+
+.celebration span {
+  animation: celebrate 0.8s ease-in-out infinite;
+}
+
+.celebration span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.celebration span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes celebrate {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+  }
+}
+
+/* Lettre */
+.letter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  /* background: linear-gradient(135deg, #ffc0cb 0%, #ffb3d9 100%); */
+
+  background: url('../public/background.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.letter {
+  background: #f5f5f0;
+  padding: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  animation: slideIn 0.6s ease-out;
+  margin: 0 auto;
+}
+
+.letter-text {
+  font-family: "Dancing Script", cursive;
+  font-size: 18px;
+
+  line-height: 1.8;
+  color: #333;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+  min-height: 400px;
+}
+
+.cursor {
+  display: inline;
+  color: #333;
+  animation: blink 1s infinite;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 70%, 100% {
+    opacity: 1;
+  }
+  85%, 95% {
+    opacity: 0.3;
+  }
+}
+
+/* Envelope zoom animation */
+.envelope-zoom {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: url('/yanis_sv/envelope.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: zoomEnvelope 1.5s ease-in-out forwards;
+  z-index: 100;
+}
+
+@keyframes zoomEnvelope {
+  0% {
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+  }
+  100% {
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+  }
+}
+
+/* Falling hearts */
+.falling-heart {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: fall 4s linear infinite;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* .falling-heart-1 {
+  left: 10%;
+  background-image: url('/yanis_sv/coeur-01.png');
+  animation-delay: 0s;
+}
+
+.falling-heart-2 {
+  left: 25%;
+  background-image: url('/yanis_sv/coeur-02.png');
+  animation-delay: 0.5s;
+}
+
+.falling-heart-3 {
+  left: 40%;
+  background-image: url('/yanis_sv/coeur-03.png');
+  animation-delay: 1s;
+}
+
+.falling-heart-4 {
+  left: 55%;
+  background-image: url('/yanis_sv/coeur-04.png');
+  animation-delay: 1.5s;
+}
+
+.falling-heart-5 {
+  left: 70%;
+  background-image: url('/yanis_sv/coeur-01.png');
+  animation-delay: 2s;
+} */
+
+@keyframes fall {
+  from {
+    top: -200px;
+    opacity: 1;
+  }
+  to {
+    top: 120vh;
+    opacity: 0;
+  }
+}
+
+/* Envelope zoom animation */
+.envelope-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.envelope-zoom {
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  transition: transform 0.05s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cœurs qui tombent */
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.falling-heart {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: -150px;
+  animation: falling 15s linear forwards;
+}
+
+.falling-heart img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes falling {
+  0% {
+    
+    top: 100vh;
+    opacity: 0.7;
+  }
+  100% {
+    top: -150px;
+    opacity: 1;
+  }
+}
